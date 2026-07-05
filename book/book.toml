@@ -1,0 +1,7 @@
+[book]
+title = "RustでAtCoder"
+authors = ["jazzyvee"]
+language = "ja"
+
+[build]
+build-dir = "dist"

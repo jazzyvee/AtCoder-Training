@@ -10,15 +10,20 @@
     }
 
     function applyTitles(problems) {
+        // Use `name` (plain problem name) instead of `title`/`problem_index`:
+        // the API's problem_index is unreliable for some contests (observed
+        // off-by-one on abc300), so the letter is derived from our own alias.
         var byId = {};
         for (var i = 0; i < problems.length; i++) {
-            byId[problems[i].id] = problems[i].title;
+            byId[problems[i].id] = problems[i].name;
         }
         getTargets().forEach(function (el) {
             var id = el.getAttribute("data-problem-id");
-            var title = byId[id];
-            if (title) {
-                el.textContent = el.textContent + " - " + title;
+            var name = byId[id];
+            if (name) {
+                var alias = el.textContent;
+                var letter = alias.charAt(0).toUpperCase() + alias.slice(1);
+                el.textContent = letter + ". " + name;
                 el.removeAttribute("data-problem-id");
             }
         });

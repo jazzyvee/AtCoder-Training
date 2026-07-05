@@ -1,0 +1,2 @@
+# cargo build artifacts (shared target-dir set in atcoder/.cargo/config.toml)
+atcoder/**/target/

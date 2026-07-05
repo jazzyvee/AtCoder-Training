@@ -5,6 +5,7 @@ on:
         branches: [main]
         paths:
             - "book/**"
+            - "atcoder/**"
             - ".github/workflows/deploy.yml"
     workflow_dispatch:
 
@@ -40,6 +41,9 @@ jobs:
                   if ! command -v mdbook &> /dev/null; then
                     cargo install mdbook
                   fi
+
+            - name: Generate book pages from atcoder/
+              run: bash book/generate.sh
 
             - name: Build book
               run: mdbook build book

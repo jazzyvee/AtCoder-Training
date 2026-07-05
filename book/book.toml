@@ -5,3 +5,6 @@ language = "ja"
 
 [build]
 build-dir = "dist"
+
+[output.html]
+additional-js = ["theme/title-fetch.js"]

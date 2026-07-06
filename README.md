@@ -6,6 +6,11 @@ Rustと競プロの学習用リポジトリ。
 
 `atcoder`フォルダでAtCoderを解く。`cargo-compete`を使用。
 
+### :warning: 注意点
+
+- editionは2021までの対応。
+- compete submitはreCaptchaの影響で厳しそう
+
 ## mdbook
 
 `book`フォルダで、回答コードを参照するmdbookを管理する。

@@ -12,8 +12,39 @@ fn main() {
     let c: Vec<Vec<char>> = (0..h)
         .map(|_| iter.next().unwrap().chars().collect())
         .collect();
-    let mut res: Vec<String> = Vec::new();
-    let mut ans = vec![0; min(h, w)];
+    let n = min(h, w);
+    let mut ans = vec![0; n];
+
+    for i in 0..h {
+        for j in 0..w {
+            if c[i][j] != '#' {
+                continue;
+            }
+            let mut size = 1;
+            while i >= size
+                && j >= size
+                && i + size < h
+                && j + size < w
+                && c[i - (size)][j - (size)] == '#'
+                && c[i + (size)][j - (size)] == '#'
+                && c[i + (size)][j + (size)] == '#'
+                && c[i - (size)][j + (size)] == '#'
+            {
+                size += 1;
+            }
+            if size > 1 {
+                ans[size - 2] += 1;
+            }
+        }
+    }
+
+    println!(
+        "{}",
+        ans.iter()
+            .map(|x| x.to_string())
+            .collect::<Vec<_>>()
+            .join(" ")
+    );
 }
 
 fn main_first() {

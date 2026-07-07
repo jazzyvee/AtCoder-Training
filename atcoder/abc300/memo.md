@@ -1,0 +1,2 @@
+- split_whitespace優秀
+- charsで文字列からVec<char>作れる
